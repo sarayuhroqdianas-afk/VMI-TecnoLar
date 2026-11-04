@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-secondary: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+    --petrol-primary: #0369a1;
+    --petrol-dark: #0f2942;
+    --accent: #0284c7;
+  }
+
+  .dark {
+    --bg-main: #060b11;
+    --bg-card: #0b1522;
+    --bg-secondary: #101f30;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #1e3a5f;
+    --petrol-primary: #0284c7;
+    --petrol-dark: #071524;
+    --accent: #38bdf8;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES (Quando não estiver em modo .dark)
+   No modo claro: fundo branco/ardósia clara, texto escuro e azul petróleo
+   ========================================================================== */
+html:not(.dark) body,
+html.theme-light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .bg-slate-950,
+html.theme-light .bg-slate-950 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .bg-slate-900,
+html.theme-light .bg-slate-900 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .text-white,
+html.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-slate-200,
+html:not(.dark) .text-slate-300,
+html.theme-light .text-slate-200,
+html.theme-light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .text-slate-400,
+html.theme-light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-700,
+html.theme-light .border-slate-800,
+html.theme-light .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .bg-slate-800,
+html.theme-light .bg-slate-800 {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   HIGH CONTRAST MODE (WCAG 2.1 AAA)
+   Preto absoluto com elementos em amarelo luminoso e ciano
+   ========================================================================== */
+html.high-contrast,
+html.high-contrast body,
+html.high-contrast div,
+html.high-contrast main,
+html.high-contrast section,
+html.high-contrast article {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+
+html.high-contrast .text-white,
+html.high-contrast .text-slate-200,
+html.high-contrast .text-slate-300,
+html.high-contrast .text-slate-400,
+html.high-contrast .text-slate-500 {
+  color: #ffffff !important;
+}
+
+html.high-contrast .text-cyan-400,
+html.high-contrast .text-cyan-300,
+html.high-contrast .text-emerald-400,
+html.high-contrast .text-amber-400 {
+  color: #00ffff !important;
+}
+
+html.high-contrast button {
+  background-color: #1a1a1a !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+html.high-contrast input,
+html.high-contrast select,
+html.high-contrast textarea {
+  background-color: #000000 !important;
+  color: #00ffff !important;
+  border: 2px solid #ffff00 !important;
+}
+
+/* Daltonism color filter classes */
+.filter-protanopia {
+  filter: url('#protanopia-filter');
+}
+
+.filter-deuteranopia {
+  filter: url('#deuteranopia-filter');
+}
+
+.filter-tritanopia {
+  filter: url('#tritanopia-filter');
+}
+
+.filter-achromatopsia {
+  filter: grayscale(100%) contrast(125%);
+}
+
+/* Print styles for reports */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

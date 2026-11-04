@@ -1,0 +1,6 @@
+{
+  "name": "TecnoLar VMI — Gestão de Reposição & Estoque Integrado",
+  "description": "Sistema VMI (Vendor Managed Inventory) da Indústria TecnoLar integrado ao ERP, com IA de previsão de demanda, cálculo dinâmico de Ponto de Pedido e Estoque de Segurança, Milk Run, Kanban e acessibilidade total (Libras, voz, alto contraste).",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
