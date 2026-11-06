@@ -108,7 +108,7 @@ export const AccessibilityModal: React.FC<AccessibilityModalProps> = ({
               <div>
                 <span className="text-sm font-semibold text-white block">Modo de Alto Contraste</span>
                 <span className="text-xs text-slate-400">
-                  Preto absoluto com elementos em amarelo de alto contraste e bordas reforçadas.
+                  Compatível com Modo Claro (fundo branco e texto preto) e Modo Escuro (fundo preto e amarelo) com bordas sólidas (WCAG AAA).
                 </span>
               </div>
             </div>

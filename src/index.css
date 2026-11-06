@@ -82,46 +82,178 @@ html.theme-light .bg-slate-800 {
 
 /* ==========================================================================
    HIGH CONTRAST MODE (WCAG 2.1 AAA)
-   Preto absoluto com elementos em amarelo luminoso e ciano
+   Suporte simultâneo para Modo Escuro + Contraste e Modo Claro + Contraste
    ========================================================================== */
-html.high-contrast,
-html.high-contrast body,
-html.high-contrast div,
-html.high-contrast main,
-html.high-contrast section,
-html.high-contrast article {
+
+/* 1. MODO ESCURO + ALTO CONTRASTE (Preto absoluto, amarelo elétrico e ciano) */
+html.dark.high-contrast,
+html.high-contrast-dark,
+html.dark.high-contrast body,
+html.high-contrast-dark body {
   background-color: #000000 !important;
   color: #ffff00 !important;
-  border-color: #ffff00 !important;
 }
 
-html.high-contrast .text-white,
-html.high-contrast .text-slate-200,
-html.high-contrast .text-slate-300,
-html.high-contrast .text-slate-400,
-html.high-contrast .text-slate-500 {
+html.dark.high-contrast .bg-slate-950,
+html.dark.high-contrast .bg-slate-900,
+html.dark.high-contrast .bg-slate-850,
+html.dark.high-contrast .bg-slate-800,
+html.high-contrast-dark .bg-slate-950,
+html.high-contrast-dark .bg-slate-900,
+html.high-contrast-dark .bg-slate-850,
+html.high-contrast-dark .bg-slate-800 {
+  background-color: #050505 !important;
+  border-color: #ffff00 !important;
+  color: #ffff00 !important;
+}
+
+html.dark.high-contrast .text-white,
+html.dark.high-contrast .text-slate-200,
+html.dark.high-contrast .text-slate-300,
+html.high-contrast-dark .text-white,
+html.high-contrast-dark .text-slate-200,
+html.high-contrast-dark .text-slate-300 {
   color: #ffffff !important;
 }
 
-html.high-contrast .text-cyan-400,
-html.high-contrast .text-cyan-300,
-html.high-contrast .text-emerald-400,
-html.high-contrast .text-amber-400 {
+html.dark.high-contrast .text-slate-400,
+html.dark.high-contrast .text-slate-500,
+html.high-contrast-dark .text-slate-400,
+html.high-contrast-dark .text-slate-500 {
+  color: #ffff77 !important;
+}
+
+html.dark.high-contrast .text-cyan-400,
+html.dark.high-contrast .text-cyan-300,
+html.dark.high-contrast .text-emerald-400,
+html.dark.high-contrast .text-amber-400,
+html.high-contrast-dark .text-cyan-400,
+html.high-contrast-dark .text-cyan-300,
+html.high-contrast-dark .text-emerald-400,
+html.high-contrast-dark .text-amber-400 {
   color: #00ffff !important;
 }
 
-html.high-contrast button {
-  background-color: #1a1a1a !important;
+html.dark.high-contrast button,
+html.high-contrast-dark button {
+  background-color: #111111 !important;
   color: #ffff00 !important;
   border: 2px solid #ffff00 !important;
 }
 
-html.high-contrast input,
-html.high-contrast select,
-html.high-contrast textarea {
+html.dark.high-contrast input,
+html.dark.high-contrast select,
+html.dark.high-contrast textarea,
+html.high-contrast-dark input,
+html.high-contrast-dark select,
+html.high-contrast-dark textarea {
   background-color: #000000 !important;
   color: #00ffff !important;
   border: 2px solid #ffff00 !important;
+}
+
+/* 2. MODO CLARO + ALTO CONTRASTE (Branco absoluto, preto profundo e bordas 2px sólidas) */
+html:not(.dark).high-contrast,
+html.theme-light.high-contrast,
+html.high-contrast-light,
+html:not(.dark).high-contrast body,
+html.theme-light.high-contrast body,
+html.high-contrast-light body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html:not(.dark).high-contrast .bg-slate-950,
+html:not(.dark).high-contrast .bg-slate-900,
+html:not(.dark).high-contrast .bg-slate-850,
+html:not(.dark).high-contrast .bg-slate-800,
+html.theme-light.high-contrast .bg-slate-950,
+html.theme-light.high-contrast .bg-slate-900,
+html.theme-light.high-contrast .bg-slate-850,
+html.theme-light.high-contrast .bg-slate-800,
+html.high-contrast-light .bg-slate-950,
+html.high-contrast-light .bg-slate-900,
+html.high-contrast-light .bg-slate-850,
+html.high-contrast-light .bg-slate-800 {
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+html:not(.dark).high-contrast .text-white,
+html:not(.dark).high-contrast .text-slate-100,
+html:not(.dark).high-contrast .text-slate-200,
+html:not(.dark).high-contrast .text-slate-300,
+html:not(.dark).high-contrast .text-slate-400,
+html:not(.dark).high-contrast .text-slate-500,
+html.theme-light.high-contrast .text-white,
+html.theme-light.high-contrast .text-slate-100,
+html.theme-light.high-contrast .text-slate-200,
+html.theme-light.high-contrast .text-slate-300,
+html.theme-light.high-contrast .text-slate-400,
+html.theme-light.high-contrast .text-slate-500,
+html.high-contrast-light .text-white,
+html.high-contrast-light .text-slate-100,
+html.high-contrast-light .text-slate-200,
+html.high-contrast-light .text-slate-300,
+html.high-contrast-light .text-slate-400,
+html.high-contrast-light .text-slate-500 {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+html:not(.dark).high-contrast .text-cyan-400,
+html:not(.dark).high-contrast .text-cyan-300,
+html:not(.dark).high-contrast .text-emerald-400,
+html.theme-light.high-contrast .text-cyan-400,
+html.theme-light.high-contrast .text-cyan-300,
+html.theme-light.high-contrast .text-emerald-400,
+html.high-contrast-light .text-cyan-400,
+html.high-contrast-light .text-cyan-300,
+html.high-contrast-light .text-emerald-400 {
+  color: #002b80 !important; /* Azul escuro WCAG AAA contrast ratio > 10:1 */
+  font-weight: 700 !important;
+}
+
+html:not(.dark).high-contrast .text-amber-400,
+html:not(.dark).high-contrast .text-rose-400,
+html.theme-light.high-contrast .text-amber-400,
+html.theme-light.high-contrast .text-rose-400,
+html.high-contrast-light .text-amber-400,
+html.high-contrast-light .text-rose-400 {
+  color: #8a1500 !important; /* Vermelho/âmbar escuro WCAG AAA */
+  font-weight: 700 !important;
+}
+
+html:not(.dark).high-contrast button,
+html.theme-light.high-contrast button,
+html.high-contrast-light button {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark).high-contrast button:hover,
+html.theme-light.high-contrast button:hover,
+html.high-contrast-light button:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark).high-contrast input,
+html:not(.dark).high-contrast select,
+html:not(.dark).high-contrast textarea,
+html.theme-light.high-contrast input,
+html.theme-light.high-contrast select,
+html.theme-light.high-contrast textarea,
+html.high-contrast-light input,
+html.high-contrast-light select,
+html.high-contrast-light textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  font-weight: 600 !important;
 }
 
 /* Daltonism color filter classes */

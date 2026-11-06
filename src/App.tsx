@@ -180,7 +180,15 @@ const AppContent: React.FC = () => {
         </div>
       )}
 
-      {showVoice && <VoiceAssistantModal onClose={() => setShowVoice(false)} />}
+      {showVoice && (
+        <VoiceAssistantModal
+          onClose={() => setShowVoice(false)}
+          onNavigate={(view) => {
+            setCurrentView(view);
+            setShowVoice(false);
+          }}
+        />
+      )}
       {showScanner && <BarcodeScannerModal onClose={() => setShowScanner(false)} />}
       {showReports && <ReportsModal onClose={() => setShowReports(false)} />}
       {showDocs && <DocumentationModal onClose={() => setShowDocs(false)} />}

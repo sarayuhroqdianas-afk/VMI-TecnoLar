@@ -279,6 +279,12 @@ export const VmiProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       body.classList.add('dark');
       body.classList.remove('theme-light');
       body.classList.add('theme-dark');
+      if (accessibility.highContrast) {
+        root.classList.add('high-contrast-dark');
+        root.classList.remove('high-contrast-light');
+        body.classList.add('high-contrast-dark');
+        body.classList.remove('high-contrast-light');
+      }
     } else {
       root.classList.remove('dark');
       root.classList.remove('theme-dark');
@@ -286,21 +292,38 @@ export const VmiProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       body.classList.remove('dark');
       body.classList.remove('theme-dark');
       body.classList.add('theme-light');
+      if (accessibility.highContrast) {
+        root.classList.add('high-contrast-light');
+        root.classList.remove('high-contrast-dark');
+        body.classList.add('high-contrast-light');
+        body.classList.remove('high-contrast-dark');
+      }
     }
-  }, [theme]);
+  }, [theme, accessibility.highContrast]);
 
   // Sync accessibility classes (contrast, daltonism, font size)
   useEffect(() => {
     const root = document.documentElement;
     const body = document.body;
 
-    // High Contrast toggle
+    // High Contrast toggle with dual Light / Dark mode support
     if (accessibility.highContrast) {
       root.classList.add('high-contrast');
       body.classList.add('high-contrast');
+      if (theme === 'light') {
+        root.classList.add('high-contrast-light');
+        root.classList.remove('high-contrast-dark');
+        body.classList.add('high-contrast-light');
+        body.classList.remove('high-contrast-dark');
+      } else {
+        root.classList.add('high-contrast-dark');
+        root.classList.remove('high-contrast-light');
+        body.classList.add('high-contrast-dark');
+        body.classList.remove('high-contrast-light');
+      }
     } else {
-      root.classList.remove('high-contrast');
-      body.classList.remove('high-contrast');
+      root.classList.remove('high-contrast', 'high-contrast-light', 'high-contrast-dark');
+      body.classList.remove('high-contrast', 'high-contrast-light', 'high-contrast-dark');
     }
 
     // Daltonism
